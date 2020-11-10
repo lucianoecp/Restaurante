@@ -1,11 +1,20 @@
+import java.util.Random; 
+
 public class Cliente {
     private String nome;
     private int numPedido;
-    private float conta;
+    private boolean inRestaurante;
     public Cliente(String nome,int numPedido)
-    {
+    {   
         this.nome = nome;
         this.numPedido = numPedido;
-        this.conta = 0;
+    }
+    public String getNome()
+    {
+        return this.nome;
+    }
+    public int realizaPedido()
+    {
+        return 
     }
 }
