@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Fila {
     private ArrayList<Cliente> inFila = new ArrayList<>();
-    ArrayList<String> aulas = new ArrayList<>();
     public Fila()
     {
     }
