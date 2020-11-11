@@ -8,7 +8,7 @@ public class Caixa {
         this.pagamento = pag;
     }
     void setTotal(float x){
-        this.total = x;
+        this.total += x;
     }
     void setSaida(float x){
         this.total -= x;
