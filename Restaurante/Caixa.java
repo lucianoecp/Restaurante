@@ -1,12 +1,14 @@
-public class Caixa {
+public class Caixa{
+
     private float saida;
     private float comissao;
-    private String pagamento;
     private float total; // dinheiro total no caixa
+    private Conta conta;
 
-    void setPagamento(String pag){
-        this.pagamento = pag;
+    public Caixa(Conta conta){
+        this.conta = conta;
     }
+
     void setTotal(float x){
         this.total += x;
     }
@@ -14,4 +16,11 @@ public class Caixa {
         this.total -= x;
         this.saida += x;
     }
-}
+    float getTotal(){
+        return this.total;
+    }
+    float getSaida(){
+        return this.saida;
+    }
+
+} 
