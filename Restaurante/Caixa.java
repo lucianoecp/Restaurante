@@ -10,4 +10,8 @@ public class Caixa {
     void setTotal(float x){
         this.total = x;
     }
+    void setSaida(float x){
+        this.total -= x;
+        this.saida += x;
+    }
 }
