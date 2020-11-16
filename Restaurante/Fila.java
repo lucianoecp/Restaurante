@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Fila {
-    private ArrayList<Cliente> inFila = new ArrayList<>();
+    private ArrayList<Cliente> inFila = new ArrayList<Cliente>();
     public Fila()
     {
     }
