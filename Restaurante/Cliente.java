@@ -1,5 +1,3 @@
-import java.util.Random; 
-
 public class Cliente {
     private String nome;
     private int numPedido;
@@ -9,12 +7,12 @@ public class Cliente {
         this.nome = nome;
         this.numPedido = numPedido;
     }
-    public String getNome()
+	public String getNome()
     {
         return this.nome;
     }
     public int realizaPedido()
     {
-        return 
+        return; 
     }
 }
