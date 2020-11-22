@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main{
     public static void main(String[] args){
-        //"Usando somente para testes, ignorar o que tem aqui"
+        // Usando somente para testes, ignorar o que tem aqui
         ArrayList<Mesa> mesas = new ArrayList<Mesa>();
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         ArrayList<Garcom> garcons = new ArrayList<Garcom>();
