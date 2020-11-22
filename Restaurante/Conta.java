@@ -1,18 +1,19 @@
 public class Conta{
-    private int numConta;
-    private float valor;
-    private String formaPagamento;
-    private Cliente cliente;
-    
-    public Conta(Cliente cliente) {
-        this.cliente = cliente;
-    }
+    private boolean isPaga;
+    private double valor;
 
-    void setValor(float valor){
+    public void setValor(float valor){
         this.valor = valor;
     }
-    public float getValor(){
+    public double getValor(){
         return this.valor;
     }
+    public boolean verificaPagamento(){
+        return this.isPaga;
+    }
+    public void setPagamento(){
+        this.isPaga = true;
+    }
+
 
 }

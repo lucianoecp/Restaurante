@@ -5,17 +5,17 @@ public class Fila {
     public Fila()
     {
     }
-    public void increaseFila(Cliente cliente)
+    public void entraNaFila(Cliente cliente)
     {
         this.inFila.add(cliente);
     }
-    public void popFila()
+    public void saiDaFila()
     {
         this.inFila.remove(0);
     }
     public void inFila()
     {
-        for(Cliente cliente: this.inFila);{
+        for(Cliente cliente: this.inFila){
             System.out.println("Cliente em Fila: " + cliente.getNome());
         }
     }

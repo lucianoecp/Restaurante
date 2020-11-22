@@ -1,3 +1,3 @@
-public class Cozinha {
+public abstract class Cozinha {
     
 }

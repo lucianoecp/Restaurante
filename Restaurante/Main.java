@@ -1,37 +1,37 @@
 import java.util.*;  
 
-public class Main {
+public class Main extends Thread{
+
     private static Runnable chegaCliente = new Runnable() {
         public void run() {
-            try{
-                clientes.add(new Cliente())
-                Thread.sleep(2000);
-                }
-            } catch (Exception e){}
+            clientes.add(auxiliar.makeCliente());
+            Thread.sleep(20);
         }
+    };
     public static Mesa checarMesa(ArrayList<Mesa> mesas){
         for (Mesa mesa:mesas)
         {
             if (mesa.checkMesa())
             {
                 System.out.println("Há uma mesa Livre");
-                mesa.ocupaMesa();
                 return mesa;
             }
         }
         return null;
     }
-    public static  void main(String[] args){
+
+    public static void main(String[] args){
         ArrayList<Mesa> mesas = new ArrayList<Mesa>();
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        ArrayList<Garcom> garcons = new ArrayList<Garcom>();
 
-        Garcom garcom = new Garcom();
         Fila fila = new Fila();
-        Cozinha cozinha = new Cozinha();
+        Cozinha ca = new Cozinha();
         Cozinheiro cozinheiro = new Cozinheiro();
         Auxiliar auxiliar = new Auxiliar();
 
-
+        new Thread(chegaCliente).start();
+        
         mesas.add(new Mesa());
         
 

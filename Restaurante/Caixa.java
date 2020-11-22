@@ -1,26 +1,27 @@
-public class Caixa{
+public class Caixa extends Funcionario{
 
-    private float saida;
-    private float comissao;
-    private float total; // dinheiro total no caixa
-    private Conta conta;
-
-    public Caixa(Conta conta){
-        this.conta = conta;
+    private boolean isOcupado;
+    private int numCaixa;
+    public Caixa(int numCaixa)
+    {
+        this.numCaixa = numCaixa;
     }
 
-    void setTotal(float x){
-        this.total += x;
-    }
-    void setSaida(float x){
-        this.total -= x;
-        this.saida += x;
-    }
-    float getTotal(){
-        return this.total;
-    }
-    float getSaida(){
-        return this.saida;
+    @Override
+    public boolean isOcupado() {
+       
+        return this.isOcupado;
     }
 
+    @Override
+    public void setOcupado(boolean ocupado) {
+        this.isOcupado = ocupado;
+    }
+    
+    public void confirmaPagamento(Cliente cliente)
+    {
+        if(!cliente.verificarPagamento()){
+            cliente.setContaPaga();   
+        }
+    }
 } 

@@ -1,8 +1,12 @@
 public class Auxiliar{
+    
     private int numCliente = 0;
-    public String makeCliente(){
+    private String nomeCliente;
+
+    public Cliente makeCliente(){
         this.numCliente += 1;
-        return "Cliente" + this.numCliente + " Entrou no Restaurante!"; 
+        this.nomeCliente = "Cliente" + this.numCliente;
+        return new Cliente(this.nomeCliente,this.numCliente);
     }
 
 }

@@ -1,8 +1,16 @@
-public class Cozinheiro {
-    private boolean ocupado;
+public class Cozinheiro extends Funcionario{
+    private boolean isOcupado;
     public Cozinheiro(){}
     
-    public void ocupaCozinheiro(){
-        this.ocupado = true;
-    }
+	@Override
+	public boolean isOcupado() {
+		
+		return this.isOcupado;
+	}
+
+	@Override
+	public void setOcupado(boolean Ocupado) {
+        this.isOcupado = Ocupado;
+	}
+    
 }

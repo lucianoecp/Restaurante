@@ -1,7 +1,8 @@
 public class Cliente {
+
     private String nome;
-    private int numPedido;
-    private boolean inRestaurante;
+    private Conta conta = new Conta();
+
     public Cliente(String nome,int numPedido)
     {   
         this.nome = nome;
@@ -11,8 +12,17 @@ public class Cliente {
     {
         return this.nome;
     }
-    public int realizaPedido()
+    public String realizaPedido(String nomePedido)
     {
-        return; 
+        return nomePedido; 
     }
+    public void setContaPaga()
+    {
+        this.conta.setPagamento();
+    }
+    public boolean verificarPagamento()
+    {
+        return this.conta.verificaPagamento();
+    }
+
 }
