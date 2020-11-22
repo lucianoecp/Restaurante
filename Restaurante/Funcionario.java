@@ -1,4 +1,18 @@
 public abstract class Funcionario {
-    public abstract boolean isOcupado();
-    public abstract void setOcupado(boolean ocupado);
+    private boolean isOcupado;
+    
+	public boolean isOcupado() {
+		return this.isOcupado;
+    }
+    
+	public void setOcupado(boolean Ocupado) {
+        this.isOcupado = Ocupado;
+    }
+
+    public String toString(){
+        if (this.isOcupado)
+        return "Funcionario Ocupado";
+        else{return "Funcionario Livre";}
+	}
+    
 }

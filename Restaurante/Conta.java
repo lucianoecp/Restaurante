@@ -8,7 +8,7 @@ public class Conta{
     public double getValor(){
         return this.valor;
     }
-    public boolean verificaPagamento(){
+    public boolean isPago(){
         return this.isPaga;
     }
     public void setPagamento(){

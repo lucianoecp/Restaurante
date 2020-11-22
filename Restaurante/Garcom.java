@@ -1,17 +1,12 @@
-public class Garcom {
-    private boolean isOcupado;
+public class Garcom extends Funcionario{
     private int numGarcom;
     public Garcom(int numGarcom)
     {
         this.numGarcom = numGarcom;
     }
-    public void setOcupado(boolean Ocupado)
+    public void atenderMesa(Mesa mesa)
     {
-        this.isOcupado = Ocupado; 
-    }
-    public boolean isOcupado()
-    {
-        return this.isOcupado;
+        mesa.setAtendimento();
     }
     
 }

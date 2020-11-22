@@ -6,21 +6,10 @@ public class Caixa extends Funcionario{
     {
         this.numCaixa = numCaixa;
     }
-
-    @Override
-    public boolean isOcupado() {
-       
-        return this.isOcupado;
-    }
-
-    @Override
-    public void setOcupado(boolean ocupado) {
-        this.isOcupado = ocupado;
-    }
     
     public void confirmaPagamento(Cliente cliente)
     {
-        if(!cliente.verificarPagamento()){
+        if(!cliente.isPago()){
             cliente.setContaPaga();   
         }
     }

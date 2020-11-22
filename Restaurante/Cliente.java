@@ -3,10 +3,9 @@ public class Cliente {
     private String nome;
     private Conta conta = new Conta();
 
-    public Cliente(String nome,int numPedido)
+    public Cliente(String nome)
     {   
         this.nome = nome;
-        this.numPedido = numPedido;
     }
 	public String getNome()
     {
@@ -20,9 +19,9 @@ public class Cliente {
     {
         this.conta.setPagamento();
     }
-    public boolean verificarPagamento()
+    public boolean isPago()
     {
-        return this.conta.verificaPagamento();
+        return this.conta.isPago();
     }
 
 }

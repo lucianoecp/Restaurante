@@ -9,9 +9,9 @@ public class Fila {
     {
         this.inFila.add(cliente);
     }
-    public void saiDaFila()
+    public Cliente saiDaFila()
     {
-        this.inFila.remove(0);
+       return this.inFila.remove(0);
     }
     public void inFila()
     {
