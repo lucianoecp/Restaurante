@@ -17,7 +17,7 @@ public class OpenRestaurante{
     Random rand = new Random(); 
     private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
-        System.out.println(nomeCliente + " Entrou no Restaurante");
+        System.out.println(nomeCliente + " Entrou no Restaurante\n");
         return new Cliente(nomeCliente);
     }
     public void makeMesa(){
@@ -66,7 +66,7 @@ public class OpenRestaurante{
         {
             if (mesa.isAtendido())
             {                 
-                System.out.println("Mesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
+                System.out.println("Mesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa \n");
                 return mesa.clienteInMesa();
             }
         }

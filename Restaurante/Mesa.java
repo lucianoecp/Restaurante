@@ -18,12 +18,12 @@ public class Mesa {
     public void ocupaMesa(Cliente cliente)
     {   
         this.cliente = cliente;
-        System.out.println("O Cliente " + this.cliente.getNome() + " Ocupou a Mesa " + this.numMesa);
+        System.out.println("O Cliente " + this.cliente.getNome() + " Ocupou a Mesa " + this.numMesa + "\n");
         this.isFree = false;
     }
     public void liberaMesa(){
-        System.out.println("O Cliente " + this.cliente.getNome() + " Pagou A Conta e Deixou O Restaurante.");
-        System.out.println("Mesa " + this.numMesa + " Esta Livre!");
+        System.out.println("O Cliente " + this.cliente.getNome() + " Pagou A Conta e Deixou O Restaurante." + "\n");
+        System.out.println("Mesa " + this.numMesa + " Esta Livre!" + "\n");
         this.cliente = null;
         this.isFree = true;
         this.isAtendido = false;
