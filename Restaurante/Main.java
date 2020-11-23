@@ -17,19 +17,18 @@ public class Main extends Thread{
 
         restaurante.makeGarcom();
         restaurante.makeGarcom();
-        restaurante.makeGarcom();
-        restaurante.makeGarcom();
+
         
         while (true) {
             int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
             new Thread(chegaRestaurante).start();
             Thread.sleep(3000);
             new Thread(checkMesa).start();
-            Thread.sleep(randomNum);
+            Thread.sleep(3000);
             new Thread(atenderMesa).start();
-            Thread.sleep(randomNum);
+            Thread.sleep(3000);
             new Thread(pagamentoConta).start();
-            Thread.sleep(randomNum);
+            Thread.sleep(3000);
             
         }
     }
@@ -47,12 +46,12 @@ public class Main extends Thread{
 
 };  private static Runnable atenderMesa = new Runnable(){
         public void run(){
-            restaurante.atenderMesa();
+            restaurante.atenderMesaTest();
     }
 };
     private static Runnable pagamentoConta = new Runnable(){
         public void run(){
-                restaurante.checarMesaAtendida();
+                restaurante.checarMesaAtendidaTest();
         }
     };
 

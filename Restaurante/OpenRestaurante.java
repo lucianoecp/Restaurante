@@ -14,6 +14,7 @@ public class OpenRestaurante{
     private int numGarcom = 0;
     private int randomNum;
     private String nomeCliente;
+    
     Random rand = new Random(); 
     private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
@@ -52,7 +53,7 @@ public class OpenRestaurante{
         {
                 for(Mesa mesa: mesas)
                 {
-
+                    
                     if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
                     {
                         garcom.atenderMesa(mesa);
@@ -93,5 +94,51 @@ public class OpenRestaurante{
     public void checkFila(){
         fila.inFila();
     }
+
+
+    //Funcoes que pegam elementos aleatorios
+    public void atenderMesaTest(){
+        for(int i = 0; i< garcons.size();i++){
+               Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
+                for(int j = 0; j< mesas.size();j++){
+                {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+                    if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
+                    {   
+                        garcom.atenderMesa(mesa);
+                        garcom.setOcupado(true);
+                    }
+                }garcom.setOcupado(false);
+            }
+        }
+        }
+        private void pagaContaTest(Cliente cliente)
+        {
+            for(int i = 0; i< caixas.size();i++)
+            {   
+                Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
+                for(Mesa mesa:mesas){
+                    if(!caixa.isOcupado())
+                     {
+                        caixa.confirmaPagamento(cliente);
+                        if(cliente.equals(mesa.clienteInMesa())){
+                            mesa.liberaMesa();
+                            caixa.setOcupado(true);
+                        }
+                    }
+                }caixa.setOcupado(false);
+            }
+        }
+        public Cliente checarMesaAtendidaTest(){
+            for(int i = 0; i< mesas.size();i++)
+            {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+                if (mesa.isAtendido())
+                {                 
+                    System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
+                    pagaConta(mesa.clienteInMesa());
+                }
+            }
+            return null;
+        } 
+    
 
 }
