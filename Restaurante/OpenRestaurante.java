@@ -4,13 +4,13 @@ public class OpenRestaurante{
     private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     private ArrayList<Garcom> garcons = new ArrayList<Garcom>();
     private ArrayList<Caixa> caixas = new ArrayList<Caixa>();
-    
+ 
     Fila fila = new Fila();
 
     private int numCliente = 0;
     private String nomeCliente;
 
-    public Cliente makeCliente(){
+    private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
         System.out.println(nomeCliente + " Entrou no Restaurante");
         return new Cliente(nomeCliente);
@@ -18,18 +18,19 @@ public class OpenRestaurante{
     public void chegaRestaurante(){
         fila.entraNaFila(makeCliente());
     }
-    public String checarMesa(ArrayList<Mesa> mesas){
+    public void checarMesaLivre(){
         for (Mesa mesa:mesas)
         {
             if (mesa.checkMesa())
             {   
                 mesa.toString();               
                 mesa.ocupaMesa(fila.saiDaFila());
-                return "Mesas Ocupadas";
+                System.out.println("Mesa Foi Ocupada");
+                return;
             }
         }
         
-        return "Não Há Mesas Livres, Esperando Na Fila";
+        System.out.println("Não Há Mesas Livres, Esperando Na Fila"); 
     } 
     
     public void atenderMesa(){
@@ -46,7 +47,18 @@ public class OpenRestaurante{
             }
         }
     }
-
+    public Cliente checarMesaAtendida(){
+        for (Mesa mesa:mesas)
+        {
+            if (mesa.isAtendido())
+            {                 
+                System.out.println("Mesa Foi Atendida,Cliente se dirigindo ao Caixa");
+                return mesa.clienteInMesa();
+            }
+        }
+        return null;
+    } 
+    
     public void pagaConta(Cliente cliente)
     {
         for(Caixa caixa:caixas)
@@ -62,6 +74,8 @@ public class OpenRestaurante{
             }
         }
     }
-
+    public void checkFila(){
+        fila.inFila();
+    }
 
 }
