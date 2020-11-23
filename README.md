@@ -13,7 +13,7 @@ Modelar usando orientação a objetos, o seguinte problema:
 - Ao ser atendido, o cliente se dirige ao caixa para pagamento;
 - Os caixas recebem os pagamentos dos clientes;
 - Após realizar o pagamento os clientes se dirigem à saída do restaurante;
-- Esse processo se repeta até que o usuário encerre o programa.
+- Esse processo se repete até que o usuário encerre o programa.
 - Usar Threading;
 - Modelagem simples, não é necessário que seja gráfica, porém, deve ser dinâmica e demonstrável em execução;
 
