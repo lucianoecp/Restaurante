@@ -1,4 +1,5 @@
 import java.util.*;  
+import java.util.Random; 
 public class OpenRestaurante{
     
     private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
@@ -11,9 +12,9 @@ public class OpenRestaurante{
     private int numMesa = 0;
     private int numCaixa = 0;
     private int numGarcom = 0;
-
+    private int randomNum;
     private String nomeCliente;
-
+    Random rand = new Random(); 
     private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
         System.out.println(nomeCliente + " Entrou no Restaurante");
@@ -29,7 +30,10 @@ public class OpenRestaurante{
         garcons.add(new Garcom(numGarcom++));
     }
     public void chegaRestaurante(){
+        randomNum = rand.nextInt(3); 
+        for(int i = 0; i < randomNum; i++) {
         fila.entraNaFila(makeCliente());
+        }
     }
     public void checarMesaLivre(){
         for (Mesa mesa:mesas)
@@ -51,7 +55,7 @@ public class OpenRestaurante{
                 for(Mesa mesa: mesas)
                 {
 
-                    if(!garcom.isOcupado() & !mesa.isAtendido())
+                    if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
                     {
                         garcom.atenderMesa(mesa);
                         garcom.setOcupado(true);
@@ -64,7 +68,7 @@ public class OpenRestaurante{
         {
             if (mesa.isAtendido())
             {                 
-                System.out.println("Mesa Foi Atendida,Cliente se dirigindo ao Caixa");
+                System.out.println("Mesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
                 return mesa.clienteInMesa();
             }
         }

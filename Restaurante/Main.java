@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Main {
+public class Main extends Thread{
     private static OpenRestaurante restaurante = new OpenRestaurante();
     private static Random gerador = new Random();
 
@@ -17,6 +17,7 @@ public class Main {
 
         restaurante.makeGarcom();
         restaurante.makeGarcom();
+        
         while (true) {
             //int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
             new Thread(chegaRestaurante).start();
@@ -28,12 +29,13 @@ public class Main {
             new Thread(pagamentoConta).start();
             Thread.sleep(3000);
             
+            
         }
     }
 
     private static Runnable chegaRestaurante = new Runnable() {
         public void run() {
-            restaurante.chegaRestaurante();     
+            restaurante.chegaRestaurante();
             restaurante.checkFila();   
     }  
 };
@@ -44,7 +46,7 @@ public class Main {
 
 };  private static Runnable atenderMesa = new Runnable(){
         public void run(){
-                restaurante.atenderMesa();
+            restaurante.atenderMesa();
        
     }
 };
@@ -55,6 +57,5 @@ public class Main {
            
         }
     };
-    
 
 }
