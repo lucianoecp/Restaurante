@@ -7,9 +7,14 @@ public class Mesa {
         this.numMesa = numMesa;
         this.isFree=true;
     }
+    public int getNumMesa()
+    {
+        return this.numMesa;
+    }
     public boolean checkMesa(){
         return this.isFree;
     }
+
     public void ocupaMesa(Cliente cliente)
     {   
         this.cliente = cliente;
@@ -24,12 +29,11 @@ public class Mesa {
         this.isAtendido = false;
     }
     public boolean isAtendido()
-    {
+    {   
         return this.isAtendido;
     }
     public void setAtendimento()
     {   
-        System.out.println("O Cliente " + this.cliente.getNome() + " Foi Atendido pelo Garcom");
         this.isAtendido = true;
     }
     public Cliente clienteInMesa()

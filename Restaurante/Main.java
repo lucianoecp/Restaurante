@@ -8,18 +8,25 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         restaurante.makeMesa();
+        restaurante.makeMesa();
+        restaurante.makeMesa();
+        restaurante.makeMesa();
+
         restaurante.makeCaixa();
+        restaurante.makeCaixa();
+
+        restaurante.makeGarcom();
         restaurante.makeGarcom();
         while (true) {
             //int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
             new Thread(chegaRestaurante).start();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             new Thread(checkMesa).start();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             new Thread(atenderMesa).start();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             new Thread(pagamentoConta).start();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             
         }
     }
@@ -37,8 +44,7 @@ public class Main {
 
 };  private static Runnable atenderMesa = new Runnable(){
         public void run(){
-            if(restaurante.checarMesaAtendida() instanceof Object)    
-                restaurante.pagaConta(restaurante.checarMesaAtendida());
+                restaurante.atenderMesa();
        
     }
 };

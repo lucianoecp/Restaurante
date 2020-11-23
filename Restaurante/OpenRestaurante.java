@@ -11,6 +11,7 @@ public class OpenRestaurante{
     private int numMesa = 0;
     private int numCaixa = 0;
     private int numGarcom = 0;
+
     private String nomeCliente;
 
     private Cliente makeCliente(){
@@ -37,7 +38,6 @@ public class OpenRestaurante{
             {   
                 mesa.toString();               
                 mesa.ocupaMesa(fila.saiDaFila());
-                System.out.println("Mesa Foi Ocupada");
                 return;
             }
         }
