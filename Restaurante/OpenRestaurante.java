@@ -2,9 +2,9 @@ import java.util.*;
 import java.util.Random; 
 public class OpenRestaurante{
     
-    private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
-    private ArrayList<Garcom> garcons = new ArrayList<Garcom>();
-    private ArrayList<Caixa> caixas = new ArrayList<Caixa>();
+    private List<Mesa> mesas = new ArrayList<Mesa>();
+    private List<Garcom> garcons = new ArrayList<Garcom>();
+    private List<Caixa> caixas = new ArrayList<Caixa>();
     
     Fila fila = new Fila();
 
@@ -37,7 +37,7 @@ public class OpenRestaurante{
     }
     public void checarMesaLivre(){
         for (Mesa mesa:mesas)
-        {
+        {   
             if (!fila.isVazia() & mesa.checkMesa())
             {   
                 mesa.toString();               
@@ -77,15 +77,16 @@ public class OpenRestaurante{
     {
         for(Caixa caixa:caixas)
         {   
-            if(!caixa.isOcupado())
-            {
-                caixa.confirmaPagamento(cliente);
-                for(Mesa mesa:mesas){
+            for(Mesa mesa:mesas){
+                if(!caixa.isOcupado())
+                 {
+                    caixa.confirmaPagamento(cliente);
                     if(cliente.equals(mesa.clienteInMesa())){
                         mesa.liberaMesa();
+                        caixa.setOcupado(true);
                     }
                 }
-            }caixa.setOcupado(true);
+            }caixa.setOcupado(false);
         }
     }
 
