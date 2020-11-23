@@ -1,5 +1,5 @@
 import java.util.*;  
-public class Auxiliar{
+public class OpenRestaurante{
     
     private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     private ArrayList<Garcom> garcons = new ArrayList<Garcom>();
@@ -12,6 +12,7 @@ public class Auxiliar{
 
     public Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
+        System.out.println(nomeCliente + " Entrou no Restaurante");
         return new Cliente(nomeCliente);
     }
     public void chegaRestaurante(){
