@@ -101,44 +101,44 @@ public class OpenRestaurante{
         for(int i = 0; i< garcons.size();i++){
                Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
                 for(int j = 0; j< mesas.size();j++){
-                {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+                   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
                     if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
                     {   
                         garcom.atenderMesa(mesa);
                         garcom.setOcupado(true);
                     }
-                }garcom.setOcupado(false);
-            }
-        }
-        }
-        private void pagaContaTest(Cliente cliente)
-        {
-            for(int i = 0; i< caixas.size();i++)
-            {   
-                Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
-                for(Mesa mesa:mesas){
-                    if(!caixa.isOcupado())
-                     {
-                        caixa.confirmaPagamento(cliente);
-                        if(cliente.equals(mesa.clienteInMesa())){
-                            mesa.liberaMesa();
-                            caixa.setOcupado(true);
-                        }
+               
+        } garcom.setOcupado(false);
+    }
+    }
+    private void pagaContaTest(Cliente cliente)
+    {
+        for(int i = 0; i< caixas.size();i++)
+        {   
+            Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
+            for(Mesa mesa:mesas){
+                if(!caixa.isOcupado())
+                    {
+                    caixa.confirmaPagamento(cliente);
+                    if(cliente.equals(mesa.clienteInMesa())){
+                        mesa.liberaMesa();
+                        caixa.setOcupado(true);
                     }
-                }caixa.setOcupado(false);
+                }
+            }caixa.setOcupado(false);
+        }
+    }
+    public Cliente checarMesaAtendidaTest(){
+        for(int i = 0; i< mesas.size();i++)
+        {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+            if (mesa.isAtendido())
+            {                 
+                System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
+                pagaContaTest(mesa.clienteInMesa());
             }
         }
-        public Cliente checarMesaAtendidaTest(){
-            for(int i = 0; i< mesas.size();i++)
-            {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
-                if (mesa.isAtendido())
-                {                 
-                    System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
-                    pagaConta(mesa.clienteInMesa());
-                }
-            }
-            return null;
-        } 
+        return null;
+    } 
     
 
 }
