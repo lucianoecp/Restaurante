@@ -1,6 +1,6 @@
 public class Cozinheiro extends Funcionario{
-    private boolean isOcupado;
-    public Cozinheiro(){}
     
-	
+    public Cozinheiro(int numGarcom){
+        super(numGarcom);
+    }
 }

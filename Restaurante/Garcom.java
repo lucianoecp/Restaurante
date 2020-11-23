@@ -1,11 +1,10 @@
 public class Garcom extends Funcionario{
-    private int numGarcom;
     public Garcom(int numGarcom)
     {
-        this.numGarcom = numGarcom;
+        super(numGarcom);
     }
     public void atenderMesa(Mesa mesa)
-    {   System.out.println("\nO Garcom " + this.numGarcom + " Atendeu a Mesa" + mesa.getNumMesa() + "");
+    {   System.out.println("\nO Garcom Atendeu a Mesa" + mesa.getNumMesa() + "");
         mesa.setAtendimento();
     }
     

@@ -6,7 +6,7 @@ public class OpenRestaurante{
     private List<Garcom> garcons = new ArrayList<Garcom>();
     private List<Caixa> caixas = new ArrayList<Caixa>();
     
-    Fila fila = new Fila();
+    private Fila fila = new Fila();
 
     private int numCliente = 0;
     private int numMesa = 0;
@@ -30,8 +30,9 @@ public class OpenRestaurante{
     public void makeGarcom(){
         garcons.add(new Garcom(numGarcom++));
     }
+
     public void chegaRestaurante(){
-        randomNum = rand.nextInt(5); 
+        randomNum = rand.nextInt(3); 
         for(int i = 0; i < randomNum; i++) {
         fila.entraNaFila(makeCliente());
         }
@@ -53,7 +54,6 @@ public class OpenRestaurante{
         {
                 for(Mesa mesa: mesas)
                 {
-                    
                     if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
                     {
                         garcom.atenderMesa(mesa);
@@ -62,6 +62,7 @@ public class OpenRestaurante{
                 }garcom.setOcupado(false);
             }
         }
+
     public Cliente checarMesaAtendida(){
         for (Mesa mesa:mesas)
         {
@@ -101,13 +102,14 @@ public class OpenRestaurante{
         for(int i = 0; i< garcons.size();i++){
                Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
                 for(int j = 0; j< mesas.size();j++){
+
                    Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+
                     if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
                     {   
                         garcom.atenderMesa(mesa);
                         garcom.setOcupado(true);
                     }
-               
         } garcom.setOcupado(false);
     }
     }
@@ -139,6 +141,4 @@ public class OpenRestaurante{
         }
         return null;
     } 
-    
-
 }

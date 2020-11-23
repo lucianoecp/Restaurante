@@ -1,6 +1,13 @@
 public abstract class Funcionario {
     private boolean isOcupado;
-    
+    private int numFuncionario;
+
+    public Funcionario(int numFuncionario){
+        this.numFuncionario = numFuncionario;
+    }
+    //public int getFuncionario(int numFuncionario){
+    //   return this.numFuncionario
+    //}
 	public boolean isOcupado() {
 		return this.isOcupado;
     }
