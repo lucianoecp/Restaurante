@@ -48,17 +48,17 @@ public class OpenRestaurante{
     public void atenderMesa(){
         for(Garcom garcom:garcons)
         {
-            if(!garcom.isOcupado()){
                 for(Mesa mesa: mesas)
                 {
-                    if(!mesa.isAtendido())
+
+                    if(!garcom.isOcupado() & !mesa.isAtendido())
                     {
                         garcom.atenderMesa(mesa);
+                        garcom.setOcupado(true);
                     }
-                }
+                }garcom.setOcupado(false);
             }
         }
-    }
     public Cliente checarMesaAtendida(){
         for (Mesa mesa:mesas)
         {
