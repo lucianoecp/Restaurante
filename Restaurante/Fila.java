@@ -13,6 +13,10 @@ public class Fila {
     {
        return this.inFila.remove(0);
     }
+    public boolean isVazia()
+    {
+        return this.inFila.isEmpty();
+    }
     public void inFila()
     {
         for(Cliente cliente: this.inFila){

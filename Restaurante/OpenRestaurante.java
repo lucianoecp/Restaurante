@@ -38,15 +38,13 @@ public class OpenRestaurante{
     public void checarMesaLivre(){
         for (Mesa mesa:mesas)
         {
-            if (mesa.checkMesa())
+            if (!fila.isVazia() & mesa.checkMesa())
             {   
                 mesa.toString();               
                 mesa.ocupaMesa(fila.saiDaFila());
-                return;
+                
             }
-        }
-        
-        System.out.println("Não Há Mesas Livres, Esperando Na Fila"); 
+        } 
     } 
     
     public void atenderMesa(){
