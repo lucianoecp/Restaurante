@@ -7,6 +7,9 @@ public class Main {
     private static Random gerador = new Random();
 
     public static void main(String[] args) throws InterruptedException {
+        restaurante.makeMesa();
+        restaurante.makeCaixa();
+        restaurante.makeGarcom();
         while (true) {
             //int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
             new Thread(chegaRestaurante).start();

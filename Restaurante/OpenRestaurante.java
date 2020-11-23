@@ -4,16 +4,28 @@ public class OpenRestaurante{
     private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     private ArrayList<Garcom> garcons = new ArrayList<Garcom>();
     private ArrayList<Caixa> caixas = new ArrayList<Caixa>();
- 
+    
     Fila fila = new Fila();
 
     private int numCliente = 0;
+    private int numMesa = 0;
+    private int numCaixa = 0;
+    private int numGarcom = 0;
     private String nomeCliente;
 
     private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
         System.out.println(nomeCliente + " Entrou no Restaurante");
         return new Cliente(nomeCliente);
+    }
+    public void makeMesa(){
+        mesas.add(new Mesa(numMesa++));
+    }
+    public void makeCaixa(){
+        caixas.add(new Caixa(numCaixa++));
+    }
+    public void makeGarcom(){
+        garcons.add(new Garcom(numGarcom++));
     }
     public void chegaRestaurante(){
         fila.entraNaFila(makeCliente());

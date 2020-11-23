@@ -1,17 +1,19 @@
 public class Mesa {
-    private boolean isFree=true;
+    private boolean isFree;
     private boolean isAtendido;
     private Cliente cliente;
     private int numMesa;
     public Mesa(int numMesa){
         this.numMesa = numMesa;
+        this.isFree=true;
     }
     public boolean checkMesa(){
         return this.isFree;
     }
     public void ocupaMesa(Cliente cliente)
-    {   System.out.println("O Cliente " + this.cliente.getNome() + " Ocupou a Mesa " + this.numMesa);
+    {   
         this.cliente = cliente;
+        System.out.println("O Cliente " + this.cliente.getNome() + " Ocupou a Mesa " + this.numMesa);
         this.isFree = false;
     }
     public void liberaMesa(){
@@ -27,7 +29,7 @@ public class Mesa {
     }
     public void setAtendimento()
     {   
-        System.out.println("O Cliente " + this.cliente.getNome() + "Foi Atendido pelo Garcom");
+        System.out.println("O Cliente " + this.cliente.getNome() + " Foi Atendido pelo Garcom");
         this.isAtendido = true;
     }
     public Cliente clienteInMesa()
