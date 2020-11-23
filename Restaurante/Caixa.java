@@ -6,7 +6,6 @@ public class Caixa extends Funcionario{
     {
         this.numCaixa = numCaixa;
     }
-    
     public void confirmaPagamento(Cliente cliente)
     {
         if(!cliente.isPago()){

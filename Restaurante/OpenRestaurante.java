@@ -17,7 +17,7 @@ public class OpenRestaurante{
     Random rand = new Random(); 
     private Cliente makeCliente(){
         nomeCliente = "Cliente" + numCliente++;
-        System.out.println(nomeCliente + " Entrou no Restaurante\n");
+        System.out.println(nomeCliente + " Entrou no Restaurante");
         return new Cliente(nomeCliente);
     }
     public void makeMesa(){
@@ -30,7 +30,7 @@ public class OpenRestaurante{
         garcons.add(new Garcom(numGarcom++));
     }
     public void chegaRestaurante(){
-        randomNum = rand.nextInt(3); 
+        randomNum = rand.nextInt(5); 
         for(int i = 0; i < randomNum; i++) {
         fila.entraNaFila(makeCliente());
         }
@@ -67,7 +67,7 @@ public class OpenRestaurante{
             if (mesa.isAtendido())
             {                 
                 System.out.println("Mesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa \n");
-                return mesa.clienteInMesa();
+                pagaConta(mesa.clienteInMesa());
             }
         }
         return null;
@@ -76,7 +76,7 @@ public class OpenRestaurante{
     public void pagaConta(Cliente cliente)
     {
         for(Caixa caixa:caixas)
-        {
+        {   
             if(!caixa.isOcupado())
             {
                 caixa.confirmaPagamento(cliente);
@@ -85,9 +85,10 @@ public class OpenRestaurante{
                         mesa.liberaMesa();
                     }
                 }
-            }
+            }caixa.setOcupado(true);
         }
     }
+
     public void checkFila(){
         fila.inFila();
     }

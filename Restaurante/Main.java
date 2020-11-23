@@ -17,6 +17,8 @@ public class Main extends Thread{
 
         restaurante.makeGarcom();
         restaurante.makeGarcom();
+        restaurante.makeGarcom();
+        restaurante.makeGarcom();
         
         while (true) {
             int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
@@ -50,11 +52,7 @@ public class Main extends Thread{
 };
     private static Runnable pagamentoConta = new Runnable(){
         public void run(){
-            Cliente cliente = restaurante.checarMesaAtendida();
-            if(cliente instanceof Object)
-
-                restaurante.pagaConta(cliente);
-           
+                restaurante.checarMesaAtendida();
         }
     };
 
