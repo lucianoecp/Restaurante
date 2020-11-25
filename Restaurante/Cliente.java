@@ -1,15 +1,9 @@
-public class Cliente {
+public class Cliente extends Pessoa{
 
-    private String nome;
     private Conta conta = new Conta();
 
-    public Cliente(String nome)
-    {   
-        this.nome = nome;
-    }
-	public String getNome()
-    {
-        return this.nome;
+    public Cliente(int numCliente,String nomeCliente)
+    {   super(numCliente,nomeCliente);
     }
     public String realizaPedido(String nomePedido)
     {

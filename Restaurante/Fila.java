@@ -18,9 +18,12 @@ public class Fila {
         return this.inFila.isEmpty();
     }
     public void inFila()
-    {
-        for(Cliente cliente: this.inFila){
-            System.out.println("Cliente em Fila: " + cliente.getNome());
+    {   if(!isVazia()){
+            try{
+            for(Cliente cliente:this.inFila){
+                System.out.println("Cliente em Fila: " + cliente.getNomePessoa());
+            }
+        }catch(Exception e){}
         }
     }
 }

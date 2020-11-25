@@ -3,9 +3,18 @@ public class Mesa {
     private boolean isAtendido;
     private Cliente cliente;
     private int numMesa;
+
     public Mesa(int numMesa){
         this.numMesa = numMesa;
         this.isFree=true;
+    }
+    public boolean isAtendido()
+    {   
+        return this.isAtendido;
+    }
+    public void setAtendimento()
+    {   
+        this.isAtendido = true;
     }
     public int getNumMesa()
     {
@@ -18,23 +27,15 @@ public class Mesa {
     public void ocupaMesa(Cliente cliente)
     {   
         this.cliente = cliente;
-        System.out.println("\nO Cliente " + this.cliente.getNome() + " Ocupou a Mesa " + this.numMesa + "");
+        System.out.println("\nO Cliente " + this.cliente.getNomePessoa() + " Ocupou a Mesa " + this.numMesa + "");
         this.isFree = false;
     }
     public void liberaMesa(){
-        System.out.println("O Cliente " + this.cliente.getNome() + " Pagou A Conta e Deixou O Restaurante." + "");
+        System.out.println("O Cliente " + this.cliente.getNomePessoa() + " Pagou A Conta e Deixou O Restaurante." + "");
         System.out.println("Mesa " + this.numMesa + " Esta Livre!" + "");
         this.cliente = null;
         this.isFree = true;
         this.isAtendido = false;
-    }
-    public boolean isAtendido()
-    {   
-        return this.isAtendido;
-    }
-    public void setAtendimento()
-    {   
-        this.isAtendido = true;
     }
     public Cliente clienteInMesa()
     {
@@ -42,7 +43,7 @@ public class Mesa {
     }
     public String toString(){
         if (!this.isFree)
-        return "Mesa Ocupada pelo:" + this.cliente.getNome();
+        return "Mesa Ocupada pelo:" + this.cliente.getNomePessoa();
         else{return "Mesa Livre";}
 	}
 }

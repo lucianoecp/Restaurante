@@ -22,13 +22,11 @@ public class Main extends Thread {
         
         while (true) {
             int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
-
             new Thread(chegaRestaurante).start();
-            Thread.sleep(3000);
             new Thread(checkMesa).start();
             new Thread(atenderMesa).start();
             new Thread(pagamentoConta).start();
-            
+            Thread.sleep(3000);
         }
     }
 

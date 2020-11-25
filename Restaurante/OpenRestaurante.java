@@ -13,13 +13,11 @@ public class OpenRestaurante{
     private int numCaixa = 0;
     private int numGarcom = 0;
     private int randomNum;
-    private String nomeCliente;
     
     Random rand = new Random(); 
     private Cliente makeCliente(){
-        nomeCliente = "Cliente" + numCliente++;
-        System.out.println(nomeCliente + " Entrou no Restaurante");
-        return new Cliente(nomeCliente);
+        System.out.println("Cliente" + numCliente++ + " Entrou no Restaurante");
+        return new Cliente(numCliente,"Cliente");
     }
     public void makeMesa(){
         mesas.add(new Mesa(numMesa++));
