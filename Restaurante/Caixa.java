@@ -8,7 +8,7 @@ public class Caixa extends Pessoa{
     public void confirmaPagamento(Cliente cliente)
     {
         if(!cliente.isPago()){
-            System.out.println("O Caixa " + this.getNomePessoa() + "recebeu o pagamento do " + cliente.getNomePessoa());
+            System.out.println("O Caixa" + this.getNomePessoa() + " recebeu o pagamento do " + cliente.getNomePessoa());
             cliente.setContaPaga();   
         }
     }

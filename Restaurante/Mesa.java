@@ -27,11 +27,11 @@ public class Mesa {
     public void ocupaMesa(Cliente cliente)
     {   
         this.cliente = cliente;
-        System.out.println("\nO Cliente " + this.cliente.getNomePessoa() + " Ocupou a Mesa " + this.numMesa + "");
+        System.out.println("\nO " + this.cliente.getNomePessoa() + " Ocupou a Mesa " + this.numMesa + "");
         this.isFree = false;
     }
     public void liberaMesa(){
-        System.out.println("O Cliente " + this.cliente.getNomePessoa() + " Pagou A Conta e Deixou O Restaurante." + "");
+        System.out.println("O " + this.cliente.getNomePessoa() + " Deixou O Restaurante." + "");
         System.out.println("Mesa " + this.numMesa + " Esta Livre!" + "");
         this.cliente = null;
         this.isFree = true;
