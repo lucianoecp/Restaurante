@@ -117,13 +117,14 @@ public class OpenRestaurante{
         {   
             Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
             for(Mesa mesa:mesas){
-                if(!caixa.isOcupado())
-                    {
+                if(!caixa.isOcupado()){
                     caixa.confirmaPagamento(cliente);
                     if(cliente.equals(mesa.clienteInMesa())){
                         mesa.liberaMesa();
                         caixa.setOcupado(true);
                     }
+                }else if(!caixa.isVazio() & caixa.isOcupado()){
+                    caixa.entrarNaFila(cliente);
                 }
             }caixa.setOcupado(false);
         }

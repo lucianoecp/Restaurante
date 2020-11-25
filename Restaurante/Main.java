@@ -7,6 +7,12 @@ public class Main extends Thread {
     private static OpenRestaurante restaurante = new OpenRestaurante();
     private static Random gerador = new Random();
 
+    private static void clearScreen(){
+        char esc = 27;
+        String clear = esc + "[2J"; // codigo para limpar a tela
+        System.out.println(clear);
+    }
+
     public static void main(String[] args) throws InterruptedException, IOException {
         restaurante.makeMesa();
         restaurante.makeMesa();
@@ -22,11 +28,12 @@ public class Main extends Thread {
         
         while (true) {
             int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
+            clearScreen();
             new Thread(chegaRestaurante).start();
             new Thread(checkMesa).start();
             new Thread(atenderMesa).start();
             new Thread(pagamentoConta).start();
-            Thread.sleep(3000);
+            Thread.sleep(4000);
         }
     }
 
