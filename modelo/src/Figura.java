@@ -4,13 +4,19 @@ public class Figura
 {
     private double px, py;
     private int dx, dy;
+    private int tamanho;
 
     private static Image Fundo;
 
-    public Figura(double px, double py)
+    public Figura(double px, double py, int tamanho)
     {
         this.px = px;
         this.py = py;
+        this.tamanho = tamanho;
+    }
+
+    public int getTamanho(){
+        return this.tamanho;
     }
 
     public static void setFundo(Image fundo) {

@@ -2,8 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
 
+
 public class Salao
 {
+
+
     private static int l, h;
     private static Mesa m1, m2, m3, m4;
     private static Caixa cx1, cx2;

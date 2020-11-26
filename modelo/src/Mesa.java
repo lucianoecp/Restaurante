@@ -3,12 +3,12 @@ import java.awt.*;
 public class Mesa
 {
 
-    private Quadrado qd;
+    private Figura qd;
     private static int px, py, vel;
 
     Mesa(int px, int py)
     {
-        qd = new Quadrado(px, py, 60);
+        qd = new Figura(px, py, 60);
     }
 
     public void tick()
@@ -44,14 +44,14 @@ public class Mesa
     public void render(Graphics g)
     {
         g.setColor(Color.ORANGE);
-        g.fillRect((int)qd.getPx(), (int)qd.getPy(), qd.getL(), qd.getL());
+        g.fillRect((int)qd.getPx(), (int)qd.getPy(), qd.getTamanho(), qd.getTamanho());
     }
 
-    public void setQd(Quadrado qd) {
+    public void setQd(Figura qd) {
         this.qd = qd;
     }
 
-    public Quadrado getQd() {
+    public Figura getQd() {
         return qd;
     }
 

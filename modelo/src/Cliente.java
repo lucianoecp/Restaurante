@@ -1,16 +1,16 @@
 import java.awt.*;
-import java.util.Timer;
+import java.util.*;
+import java.util.List;
 
 public class Cliente
 {
-
-    private Circulo circ;
+    private Figura circ;
 
     private static double auX, auY, vel;
 
     Cliente()
     {
-        circ = new Circulo(0,0,20);
+        circ = new Figura(0,0,20);
         circ.setDx(3);
         circ.setDy(3);
         this.vel = 1;
@@ -66,9 +66,9 @@ public class Cliente
     public void render(Graphics g)
     {
         g.setColor(Color.BLUE);
-        g.fillOval((int)circ.getPx(), (int)circ.getPy(), circ.getD(), circ.getD());
+        g.fillOval((int)circ.getPx(), (int)circ.getPy(), circ.getTamanho(), circ.getTamanho());
         g.setColor(Color.WHITE);
-        g.drawOval((int)circ.getPx(), (int)circ.getPy(), circ.getD(), circ.getD());
+        g.drawOval((int)circ.getPx(), (int)circ.getPy(), circ.getTamanho(), circ.getTamanho());
     }
 
 
@@ -80,11 +80,11 @@ public class Cliente
         Cliente.vel = vel;
     }
 
-    public Circulo getCirc() {
+    public Figura getCirc() {
         return circ;
     }
 
-    public void setCirc(Circulo circ) {
+    public void setCirc(Figura circ) {
         this.circ = circ;
     }
 
