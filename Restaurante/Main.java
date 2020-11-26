@@ -6,13 +6,15 @@ public class Main extends Thread {
     private static OpenRestaurante restaurante = new OpenRestaurante();
     private static Random gerador = new Random();
 
-    private static void clearScreen(){
+    private static void clearScreen()
+    {
         char esc = 27;
         String clear = esc + "[2J"; // codigo para limpar a tela
         System.out.println(clear);
     }
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException 
+    {
         restaurante.makeMesa();
         restaurante.makeMesa();
         restaurante.makeMesa();
@@ -25,9 +27,10 @@ public class Main extends Thread {
         restaurante.makeGarcom();
 
         
-        while (true) {
+        while (true) 
+        {
             int randomNum = ThreadLocalRandom.current().nextInt(1000,5000 + 1);
-            clearScreen();
+            //clearScreen(); // para limpar a tela
             new Thread(chegaRestaurante).start();
             new Thread(checkMesa).start();
             new Thread(atenderMesa).start();
@@ -36,23 +39,28 @@ public class Main extends Thread {
         }
     }
 
-    private static Runnable chegaRestaurante = new Runnable() {
+    private static Runnable chegaRestaurante = new Runnable() 
+    {
         public void run() {
             restaurante.chegaRestaurante();
             restaurante.checkFila();   
-    }  
-};
-    private static Runnable checkMesa = new Runnable(){
+        }  
+    };
+    private static Runnable checkMesa = new Runnable()
+    {
         public void run(){
             restaurante.checarMesaLivre();
-    }
+        }
 
-};  private static Runnable atenderMesa = new Runnable(){
+    };  
+    private static Runnable atenderMesa = new Runnable()
+    {
         public void run(){
             restaurante.atenderMesaTest();
-    }
-};
-    private static Runnable pagamentoConta = new Runnable(){
+        }
+    };
+    private static Runnable pagamentoConta = new Runnable()
+    {
         public void run(){
                 restaurante.checarMesaAtendidaTest();
         }

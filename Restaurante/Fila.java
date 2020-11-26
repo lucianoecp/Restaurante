@@ -18,12 +18,13 @@ public class Fila {
         return this.inFila.isEmpty();
     }
     public void inFila()
-    {   if(!isVazia()){
+    {   
+        if(!isVazia()){
             try{
-            for(Cliente cliente:this.inFila){
-                System.out.println("Cliente em Fila: " + cliente.getNomePessoa());
-            }
-        }catch(Exception e){}
+                for(Cliente cliente:this.inFila){
+                    System.out.println("Cliente em Fila: " + cliente.getNomePessoa());
+                }
+            }catch(Exception e){}
         }
     }
 }

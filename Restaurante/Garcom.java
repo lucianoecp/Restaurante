@@ -4,7 +4,9 @@ public class Garcom extends Pessoa{
         super(numGarcom);
     }
     public void atenderMesa(Mesa mesa)
-    {   System.out.println("\nO Garcom" + this.getNomePessoa() + " Atendeu a Mesa " + mesa.getNumMesa() + "");
+    
+    {  
+        System.out.println("\nO Garcom" + this.getNomePessoa() + " Atendeu a Mesa " + mesa.getNumMesa() + "");
         mesa.setAtendimento();
     }
     

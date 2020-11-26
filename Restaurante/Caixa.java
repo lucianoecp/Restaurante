@@ -14,13 +14,16 @@ public class Caixa extends Pessoa{
             cliente.setContaPaga();   
         }
     }
-    public void entrarNaFila(Cliente cliente){
+    public void entrarNaFila(Cliente cliente)
+    {
         fila.entraNaFila(cliente);
     }
-    public Cliente sairDaFila(){
+    public Cliente sairDaFila()
+    {
         return fila.saiDaFila();
     }
-    public boolean isVazio(){
+    public boolean isVazio()
+    {
         return fila.isVazia();
     }
 } 
