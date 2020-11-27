@@ -22,7 +22,7 @@ public class Caixa extends Pessoa{
     {
         return fila.saiDaFila();
     }
-    public boolean isVazio()
+    public boolean isVazia()
     {
         return fila.isVazia();
     }
