@@ -8,6 +8,5 @@ public class Garcom extends Pessoa{
     {  
         System.out.println("\nO Garcom" + this.getNomePessoa() + " Atendeu a Mesa " + mesa.getNumMesa() + "");
         mesa.setAtendimento();
-    }
-    
+    } 
 }

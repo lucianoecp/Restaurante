@@ -12,7 +12,6 @@ public class OpenRestaurante{
     private int numMesa = 0;
     private int numCaixa = 0;
     private int numGarcom = 0;
-    private int randomNum;
     
     Random rand = new Random(); 
     private Cliente makeCliente()
@@ -20,6 +19,7 @@ public class OpenRestaurante{
         System.out.println("Cliente" + numCliente + " Entrou no Restaurante");
         return new Cliente(numCliente++,"Cliente");
     }
+<<<<<<< Updated upstream
     public void makeMesa()
     {
         mesas.add(new Mesa(numMesa++));
@@ -37,8 +37,23 @@ public class OpenRestaurante{
     {
         randomNum = rand.nextInt(3); 
         for(int i = 0; i < randomNum; i++) {
+=======
+    public void makeMesa(int num){
+        for(int i = 0;i<num;i++)
+            mesas.add(new Mesa(numMesa++));
+    }
+    public void makeCaixa(int num){
+        for(int i = 0;i<num;i++)
+            caixas.add(new Caixa(numCaixa++));
+    }
+    public void makeGarcom(int num){
+        for(int i = 0;i<num;i++)
+            garcons.add(new Garcom(numGarcom++));
+    }
+
+    public void chegaRestaurante(){
+>>>>>>> Stashed changes
         fila.entraNaFila(makeCliente());
-        }
     }
     public void checarMesaLivre()
     {
@@ -107,8 +122,9 @@ public class OpenRestaurante{
     }
 
 
-    //Funcoes que pegam elementos aleatorios
+    //////Funcoes que pegam elementos aleatorios
     public void atenderMesaTest(){
+<<<<<<< Updated upstream
         for(int i = 0; i< garcons.size();i++){
             Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
             for(int j = 0; j< mesas.size();j++){
@@ -152,7 +168,40 @@ public class OpenRestaurante{
                 System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
                 pagaContaTest(mesa.clienteInMesa());
             }
+=======
+        Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
+        if(garcom.isOcupado()){garcom.setOcupado(false);}
+        else{
+            Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+            if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
+            {   
+                garcom.atenderMesa(mesa);
+                garcom.setOcupado(true);
+            }
+        } 
+    }
+    private void pagaContaTest(Cliente cliente)
+    {
+        Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
+        if(caixa.isOcupado()){caixa.setOcupado(false);}
+        else{   
+            for(int i = 0;i<mesas.size();i++){
+                Mesa mesa = mesas.get(rand.nextInt(mesas.size()));   
+                caixa.confirmaPagamento(cliente);
+                if(cliente.equals(mesa.clienteInMesa())){
+                    mesa.liberaMesa();
+                    caixa.setOcupado(true);
+             }
+        } 
+    }
+}
+    public void checarMesaAtendidaTest(){
+        Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
+        if (mesa.isAtendido())
+        {                 
+            System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida, " + mesa.clienteInMesa() + " se dirigindo ao Caixa");
+            pagaContaTest(mesa.clienteInMesa());
+>>>>>>> Stashed changes
         }
-        return null;
     } 
 }
