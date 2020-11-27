@@ -19,25 +19,6 @@ public class OpenRestaurante{
         System.out.println("Cliente" + numCliente + " Entrou no Restaurante");
         return new Cliente(numCliente++,"Cliente");
     }
-<<<<<<< Updated upstream
-    public void makeMesa()
-    {
-        mesas.add(new Mesa(numMesa++));
-    }
-    public void makeCaixa()
-    {
-        caixas.add(new Caixa(numCaixa++));
-    }
-    public void makeGarcom()
-    {
-        garcons.add(new Garcom(numGarcom++));
-    }
-
-    public void chegaRestaurante()
-    {
-        randomNum = rand.nextInt(3); 
-        for(int i = 0; i < randomNum; i++) {
-=======
     public void makeMesa(int num){
         for(int i = 0;i<num;i++)
             mesas.add(new Mesa(numMesa++));
@@ -50,9 +31,7 @@ public class OpenRestaurante{
         for(int i = 0;i<num;i++)
             garcons.add(new Garcom(numGarcom++));
     }
-
     public void chegaRestaurante(){
->>>>>>> Stashed changes
         fila.entraNaFila(makeCliente());
     }
     public void checarMesaLivre()
@@ -121,54 +100,8 @@ public class OpenRestaurante{
         fila.inFila();
     }
 
-
-    //////Funcoes que pegam elementos aleatorios
+    //////Funcoes Testes
     public void atenderMesaTest(){
-<<<<<<< Updated upstream
-        for(int i = 0; i< garcons.size();i++){
-            Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
-            for(int j = 0; j< mesas.size();j++){
-                Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
-
-                if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
-                {   
-                    garcom.atenderMesa(mesa);
-                    garcom.setOcupado(true);
-                }
-            } garcom.setOcupado(false);
-        }
-    }
-    private void pagaContaTest(Cliente cliente)
-    {
-        for(int i = 0; i< caixas.size();i++)
-        {   
-            Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
-            for(Mesa mesa:mesas){
-                caixa.entrarNaFila(cliente);
-                if(!caixa.isOcupado()){
-                    caixa.confirmaPagamento(cliente);
-                    if(cliente.equals(mesa.clienteInMesa())){
-                        mesa.liberaMesa();
-                        caixa.setOcupado(true);
-                        caixa.sairDaFila();
-                    }
-                }else if(!cliente.isPago() & caixa.isOcupado()){
-                    System.out.println(cliente.getNomePessoa() + " Esperando para pagar");
-                } 
-            }
-            caixa.setOcupado(false);
-        }
-    }
-    public Cliente checarMesaAtendidaTest()
-    {
-        for(int i = 0; i< mesas.size();i++)
-        {   Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
-            if (mesa.isAtendido())
-            {                 
-                System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa");
-                pagaContaTest(mesa.clienteInMesa());
-            }
-=======
         Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
         if(garcom.isOcupado()){garcom.setOcupado(false);}
         else{
@@ -201,7 +134,6 @@ public class OpenRestaurante{
         {                 
             System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida, " + mesa.clienteInMesa() + " se dirigindo ao Caixa");
             pagaContaTest(mesa.clienteInMesa());
->>>>>>> Stashed changes
         }
     } 
 }
