@@ -1,61 +1,79 @@
 import java.awt.*;
 
-public class Mesa
-{
+public class Mesa {
+    private boolean isFree = true;
+    private boolean isAtendido;
+    private Cliente cliente;
+    private int numMesa;
 
-    private Figura qd;
-    private static int px, py, vel;
+    private double px, py;
+    private final int tamanho = 80;
 
-    Mesa(int px, int py)
+    public Mesa(int numMesa)
     {
-        qd = new Figura(px, py, 60);
+        this.numMesa = numMesa;
+        this.isFree=true;
     }
 
-    public void tick()
+    public boolean isAtendido()
+    {   
+        return this.isAtendido;
+    }
+
+    public void setAtendimento()
+    {   
+        this.isAtendido = true;
+    }
+
+    public int getNumMesa()
     {
-        //movimento();
-
+        return this.numMesa;
     }
 
-    public static void setPy(int py) {
-        Mesa.py = py;
+    public boolean checkMesa()
+    {
+        return this.isFree;
     }
 
-    public static int getPx() {
-        return px;
+    public void ocupaMesa(Cliente cliente)
+    {   
+        this.cliente = cliente;
+        System.out.println("\nO " + this.cliente.getNomePessoa() + " Ocupou a Mesa " + this.numMesa + "");
+        this.isFree = false;
     }
 
-    public static int getVel() {
-        return vel;
+    public void liberaMesa()
+    {
+        System.out.println("O " + this.cliente.getNomePessoa() + " Deixou O Restaurante." + "");
+        System.out.println("Mesa " + this.numMesa + " Esta Livre!" + "");
+        this.cliente = null;
+        this.isFree = true;
+        this.isAtendido = false;
     }
 
-    public static void setVel(int vel) {
-        Mesa.vel = vel;
+    public Cliente clienteInMesa()
+    {
+        return this.cliente;
     }
 
-    public static void setPx(int px) {
-        Mesa.px = px;
-    }
+    public String toString()
+    {
+        if (!this.isFree)
+        return "Mesa Ocupada pelo:" + this.cliente.getNomePessoa();
+        else{return "Mesa Livre";}
+	}
 
-    public static int getPy() {
-        return py;
-    }
+    public void setMesa(double px, double py){
+        this.px = px;
+        this.py = py;
+    } 
 
-    public void render(Graphics g)
+    public void render (Graphics g)
     {
         g.setColor(Color.ORANGE);
-        g.fillRect((int)qd.getPx(), (int)qd.getPy(), qd.getTamanho(), qd.getTamanho());
+        g.fillRect((int)px, (int)py, tamanho, tamanho);
+        g.setColor(Color.BLACK);
+        g.drawRect((int)px, (int)py, tamanho, tamanho);
+
     }
-
-    public void setQd(Figura qd) {
-        this.qd = qd;
-    }
-
-    public Figura getQd() {
-        return qd;
-    }
-
-
-
-
 }

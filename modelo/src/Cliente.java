@@ -1,108 +1,104 @@
 import java.awt.*;
-import java.util.*;
-import java.util.List;
 
-public class Cliente
-{
-    private Figura circ;
+public class Cliente extends Pessoa{
 
-    private static double auX, auY, vel;
+    private Conta conta = new Conta();
 
-    Cliente()
+    private double px, py;
+    private int dx,dy;
+    private final int tamanho = 35;
+
+    public Cliente(int numCliente,String nomeCliente)
+    {   
+        super(numCliente,nomeCliente);
+    }
+    public String realizaPedido(String nomePedido)
     {
-        circ = new Figura(0,0,20);
-        circ.setDx(3);
-        circ.setDy(3);
-        this.vel = 1;
+        return nomePedido; 
+    }
+    public void setContaPaga()
+    {
+        this.conta.setPagamento();
+    }
+    public boolean isPago()
+    {
+        return this.conta.isPago();
     }
 
-    //teste
-    public void movimento()
-    {
-        auX = circ.getPx();
-        auY = circ.getPy();
-
-        if(circ.getPx()<600 && circ.getPy()<360)
-        {
-            System.out.println(circ.getPx()+"/"+circ.getPy());
-
-            circ.setPx(auX+circ.getDx()*getVel());
-            circ.setPy(auY+circ.getDy()*getVel());
-
-        }
-        else{
-            circ.setPy(0);
-            circ.setPx(0);
-        }
+    public void setCliente(double px, double py){
+        this.px = px;
+        this.py = py;
+        this.dx = 1;
+        this.dx = 1;
     }
 
-    public  void moveToPosition(int xf, int yf)
+    public void setDy(int dy) {
+        this.dy = dy;
+    }
+
+    public int getDy() {
+        return dy;
+    }
+
+    public void setDx(int dx) {
+        this.dx = dx;
+    }
+
+    public int getDx() {
+        return dx;
+    }
+
+    public void setPx(double px) {
+        this.px = px;
+    }
+
+    public double getPx() {
+        return px;
+    }
+
+    public void setPy(double py) {
+        this.py = py;
+    }
+
+    public double getPy() {
+        return py;
+    }
+
+    // movimenta o elemento da posição atual até a posição (x, y)
+    // em 50 passos
+    public void moveToPosition(int x, int y)
     {
-        double ftx = 0, fty= 0;
         int numPassos = 50;
+        boolean movido = false;
 
-        auX = circ.getPx();
-        auY = circ.getPy();
+        while(!movido)
+        {   setDx((int)((getPx() - x) * (-1) / numPassos));
+            setDy((int)((getPy() - y) * (-1) / numPassos));
 
-        if(auX != xf && auY != yf)
-        {
-            ftx = (auX - xf)*(-1)/numPassos;
-            fty = (auY - yf)*(-1)/numPassos;
+            if(getPx() != x && getPy() != y)
+            {
+                setPx(getPx() + getDx());
+                setPy(getPy() + getDy());
+
+
+            }else
+            {
+                movido = true;
+            }
         }
-
-        circ.setPx((auX + ftx));
-        circ.setPy((auY + fty));
-
-
-
     }
 
-    public void tick()
-    {
-        //movimento();
 
-    }
+
+
 
     public void render(Graphics g)
     {
         g.setColor(Color.BLUE);
-        g.fillOval((int)circ.getPx(), (int)circ.getPy(), circ.getTamanho(), circ.getTamanho());
+        g.fillOval((int)px, (int)py, tamanho, tamanho);
+
         g.setColor(Color.WHITE);
-        g.drawOval((int)circ.getPx(), (int)circ.getPy(), circ.getTamanho(), circ.getTamanho());
+        g.drawOval((int)px, (int)py, tamanho, tamanho);
     }
-
-
-    public static double getVel() {
-        return vel;
-    }
-
-    public static void setVel(double vel) {
-        Cliente.vel = vel;
-    }
-
-    public Figura getCirc() {
-        return circ;
-    }
-
-    public void setCirc(Figura circ) {
-        this.circ = circ;
-    }
-
-    public static double getAuX() {
-        return auX;
-    }
-
-    public static void setAuX(double auX) {
-        Cliente.auX = auX;
-    }
-
-    public static double getAuY() {
-        return auY;
-    }
-
-    public static void setAuY(double auY) {
-        Cliente.auY = auY;
-    }
-
 
 }
