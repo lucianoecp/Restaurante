@@ -1,4 +1,4 @@
-public class Caixa extends Pessoa{
+public class Caixa extends Pessoa implements Enfileiramento{
 
     private Fila fila = new Fila();
 
@@ -11,19 +11,25 @@ public class Caixa extends Pessoa{
     {
         if(!cliente.isPago()){
             System.out.println("O Caixa" + this.getNomePessoa() + " recebeu o pagamento do " + cliente.getNomePessoa());
-            cliente.setContaPaga();   
+            cliente.setPagamento();   
         }
     }
+
+    @Override
     public void entrarNaFila(Cliente cliente)
     {
-        fila.entraNaFila(cliente);
+        fila.entrarNaFila(cliente);
     }
+
+    @Override
     public Cliente sairDaFila()
     {
-        return fila.saiDaFila();
+        return fila.sairDaFila();
     }
-    public boolean isVazia()
+
+    @Override
+    public boolean isVazio()
     {
-        return fila.isVazia();
+        return fila.isVazio();
     }
 } 
