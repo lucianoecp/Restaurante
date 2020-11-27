@@ -1,4 +1,4 @@
 public interface Pagamento {
-    public void setPagamento();
-    public boolean isPago();    
+    public abstract void setPagamento();
+    public abstract boolean isPago();    
 }
