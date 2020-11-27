@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements Pagamento{
 
     private Conta conta = new Conta();
 
@@ -16,14 +16,19 @@ public class Cliente extends Pessoa{
     {
         return nomePedido; 
     }
-    public void setContaPaga()
+
+    @Override
+    public void setPagamento()
     {
         this.conta.setPagamento();
     }
+
+    @Override
     public boolean isPago()
     {
         return this.conta.isPago();
     }
+
 
     public void setCliente(double px, double py){
         this.px = px;

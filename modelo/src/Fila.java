@@ -1,25 +1,32 @@
 import java.util.ArrayList;
 
-public class Fila {
+public class Fila implements Enfileiramento {
     private ArrayList<Cliente> inFila = new ArrayList<Cliente>();
     public Fila()
     {
     }
-    public void entraNaFila(Cliente cliente)
+
+    @Override
+    public void entrarNaFila(Cliente cliente)
     {
         this.inFila.add(cliente);
     }
-    public Cliente saiDaFila()
+
+    @Override
+    public Cliente sairDaFila()
     {
        return this.inFila.remove(0);
     }
-    public boolean isVazia()
+
+    @Override
+    public boolean isVazio()
     {
         return this.inFila.isEmpty();
     }
+
     public void inFila()
     {   
-        if(!isVazia()){
+        if(!isVazio()){
             try{
                 for(Cliente cliente:this.inFila){
                     System.out.println("Cliente em Fila: " + cliente.getNomePessoa());

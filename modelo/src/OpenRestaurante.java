@@ -78,17 +78,17 @@ public class OpenRestaurante{
     {
         randomNum = rand.nextInt(3); 
         for(int i = 0; i < randomNum; i++) {
-        fila.entraNaFila(makeCliente());
+        fila.entrarNaFila(makeCliente());
         }
     }
     public void checarMesaLivre()
     {
         for (Mesa mesa:mesas)
         {   
-            if (!fila.isVazia() & mesa.checkMesa())
+            if (!fila.isVazio() & mesa.checkMesa())
             {   
                 mesa.toString();               
-                mesa.ocupaMesa(fila.saiDaFila());
+                mesa.ocupaMesa(fila.sairDaFila());
             }
         } 
     } 
