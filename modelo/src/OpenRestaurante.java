@@ -43,20 +43,19 @@ public class OpenRestaurante{
         cliente.render(g);
     }
 
-    public void makeMesa()
-    { 
-        mesas.add(new Mesa(numMesa++));
+    public void makeMesa(int num){
+        for(int i = 0;i<num;i++)
+            mesas.add(new Mesa(numMesa++));
     }
-
     public void modelaMesa(double px, double py, Graphics g)
     {
         mesa.setMesa(px, py);
         mesa.render(g);
     }
 
-    public void makeCaixa()
-    {
-        caixas.add(new Caixa(numCaixa++));
+    public void makeCaixa(int num){
+        for(int i = 0;i<num;i++)
+            caixas.add(new Caixa(numCaixa++));
     }
 
     public void modelaCaixa(double px, double py, Graphics g)
@@ -65,9 +64,9 @@ public class OpenRestaurante{
         caixa.render(g);
     }
 
-    public void makeGarcom()
-    {
-        garcons.add(new Garcom(numGarcom++));
+    public void makeGarcom(int num){
+        for(int i = 0;i<num;i++)
+            garcons.add(new Garcom(numGarcom++));
     }
 
     public void modelaGarcom(double px, double py, Graphics g){
