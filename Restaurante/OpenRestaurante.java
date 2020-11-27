@@ -132,7 +132,7 @@ public class OpenRestaurante{
         Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
         if (mesa.isAtendido())
         {                 
-            System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida, " + mesa.clienteInMesa() + " se dirigindo ao Caixa");
+            System.out.println("\nMesa" + mesa.getNumMesa() + " Atendida, " + mesa.clienteInMesa().getNomePessoa() + " se dirigindo ao Caixa");
             pagaContaTest(mesa.clienteInMesa());
         }
     } 
