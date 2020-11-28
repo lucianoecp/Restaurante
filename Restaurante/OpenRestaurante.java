@@ -46,57 +46,7 @@ public class OpenRestaurante{
             }
         } 
     } 
-    
-    public void atenderMesa(){
-        for(Garcom garcom:garcons)
-        {
-            for(Mesa mesa: mesas)
-            {
-                if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
-                {
-                    garcom.atenderMesa(mesa);
-                    garcom.setOcupado(true);
-                }
-            }
-            garcom.setOcupado(false);
-        }
-    }
-
-    public Cliente checarMesaAtendida(){
-        for (Mesa mesa:mesas)
-        {
-            if (mesa.isAtendido())
-            {                 
-                System.out.println("Mesa" + mesa.getNumMesa() + " Atendida,Cliente se dirigindo ao Caixa \n");
-                pagaConta(mesa.clienteInMesa());
-            }
-        }
-        return null;
-    } 
-    
-    private void pagaConta(Cliente cliente)
-    {
-        for(int i = 0; i< caixas.size();i++)
-        {   
-            Caixa caixa = caixas.get(rand.nextInt(caixas.size()));
-            for(Mesa mesa:mesas){
-                caixa.entrarNaFila(cliente);
-                if(!caixa.isOcupado()){
-                    caixa.confirmaPagamento(cliente);
-                    if(cliente.equals(mesa.clienteInMesa())){
-                        mesa.liberaMesa();
-                        caixa.setOcupado(true);
-                        caixa.sairDaFila();
-                    }
-                }else if(!cliente.isPago() & caixa.isOcupado()){
-                    System.out.println(cliente.getNomePessoa() + " Esperando para pagar");
-                }
-            }
-            caixa.setOcupado(false);
-        }
-    }
-
-    public void checkFila(){WW
+    public void checkFila(){
         fila.inFila();
     }
 
@@ -105,6 +55,7 @@ public class OpenRestaurante{
         Garcom garcom = garcons.get(rand.nextInt(garcons.size()));
         if(garcom.isOcupado()){garcom.setOcupado(false);}
         else{
+
             Mesa mesa = mesas.get(rand.nextInt(mesas.size()));
             if(!mesa.checkMesa() & (!garcom.isOcupado() & !mesa.isAtendido()))
             {   

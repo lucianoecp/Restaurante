@@ -11,11 +11,12 @@ public class Main extends Thread {
             new Thread(atenderMesa).start();
             new Thread(pagamentoConta).start();
             restaurante.checkFila();
-            Thread.sleep(4000);
+            Thread.sleep(3000);
         }
     }
     private static Runnable chegaRestaurante = new Runnable() {
-        public void run() {restaurante.chegaRestaurante();}  
+        public void run() {restaurante.chegaRestaurante();
+        restaurante.checkFila();}
     };
     private static Runnable checkMesa = new Runnable(){
         public void run(){restaurante.checarMesaLivre();}

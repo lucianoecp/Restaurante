@@ -13,7 +13,7 @@ public class Fila implements Enfileiramento {
     }
 
     @Override
-    public Cliente sairDaFila()
+    public Cliente saiDaFila()
     {
        return this.inFila.remove(0);
     }
@@ -26,7 +26,7 @@ public class Fila implements Enfileiramento {
 
     public void inFila()
     {   
-        if(!isVazio()){
+        if(!isVazia()){
             try{
                 for(Cliente cliente:this.inFila){
                     System.out.println("Cliente em Fila: " + cliente.getNomePessoa());

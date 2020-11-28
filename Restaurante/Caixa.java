@@ -24,7 +24,7 @@ public class Caixa extends Pessoa implements Enfileiramento{
     @Override
     public Cliente saiDaFila()
     {
-        return fila.sairDaFila();
+        return fila.saiDaFila();
     }
 
     @Override
