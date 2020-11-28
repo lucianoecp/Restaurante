@@ -32,16 +32,16 @@ public class OpenRestaurante{
             garcons.add(new Garcom(numGarcom++));
     }
     public void chegaRestaurante(){
-        fila.entrarNaFila(makeCliente());
+        fila.entraNaFila(makeCliente());
     }
     public void checarMesaLivre()
     {
         for (Mesa mesa:mesas)
         {   
-            if (!fila.isVazio() & mesa.checkMesa())
+            if (!fila.isVazia() & mesa.checkMesa())
             {   
                 mesa.toString();               
-                mesa.ocupaMesa(fila.sairDaFila());
+                mesa.ocupaMesa(fila.saiDaFila());
                 
             }
         } 
@@ -96,7 +96,7 @@ public class OpenRestaurante{
         }
     }
 
-    public void checkFila(){
+    public void checkFila(){WW
         fila.inFila();
     }
 

@@ -1,6 +1,6 @@
 public interface Enfileiramento
 {
-    public void abstract entrarNaFila(Cliente cliente);
-    public abstract Cliente sairDaFila();
-    public abstract boolean isVazio();
+    public void entraNaFila(Cliente cliente);
+    public Cliente saiDaFila();
+    public boolean isVazia();
 }

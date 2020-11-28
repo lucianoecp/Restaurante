@@ -16,20 +16,20 @@ public class Caixa extends Pessoa implements Enfileiramento{
     }
 
     @Override
-    public void entrarNaFila(Cliente cliente)
+    public void entraNaFila(Cliente cliente)
     {
-        fila.entrarNaFila(cliente);
+        fila.entraNaFila(cliente);
     }
 
     @Override
-    public Cliente sairDaFila()
+    public Cliente saiDaFila()
     {
         return fila.sairDaFila();
     }
 
     @Override
-    public boolean isVazio()
+    public boolean isVazia()
     {
-        return fila.isVazio();
+        return fila.isVazia();
     }
 } 

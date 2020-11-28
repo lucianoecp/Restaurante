@@ -7,7 +7,7 @@ public class Fila implements Enfileiramento {
     }
 
     @Override
-    public void entrarNaFila(Cliente cliente)
+    public void entraNaFila(Cliente cliente)
     {
         this.inFila.add(cliente);
     }
@@ -19,7 +19,7 @@ public class Fila implements Enfileiramento {
     }
 
     @Override
-    public boolean isVazio()
+    public boolean isVazia()
     {
         return this.inFila.isEmpty();
     }
