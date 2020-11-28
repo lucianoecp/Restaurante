@@ -25,7 +25,10 @@ public class Mesa {
     {
         return this.isFree;
     }
-
+    public Cliente clienteInMesa()
+    {
+        return this.cliente;
+    }
     public void ocupaMesa(Cliente cliente)
     {   
         this.cliente = cliente;
@@ -40,10 +43,7 @@ public class Mesa {
         this.isFree = true;
         this.isAtendido = false;
     }
-    public Cliente clienteInMesa()
-    {
-        return this.cliente;
-    }
+    
     public String toString()
     {
         if (!this.isFree)

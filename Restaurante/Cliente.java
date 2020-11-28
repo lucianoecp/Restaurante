@@ -6,21 +6,14 @@ public class Cliente extends Pessoa implements Pagamento {
     {   
         super(numCliente,nomeCliente);
     }
-    public String realizaPedido(String nomePedido)
-    {
-        return nomePedido; 
-    }
-
     @Override
     public void setPagamento()
     {
         this.conta.setPagamento();
     }
-
     @Override
     public boolean isPago()
     {
         return this.conta.isPago();
     }
-
 }

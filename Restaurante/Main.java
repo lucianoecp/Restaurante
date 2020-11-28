@@ -11,7 +11,8 @@ public class Main extends Thread {
             new Thread(atenderMesa).start();
             new Thread(pagamentoConta).start();
             restaurante.checkFila();
-            Thread.sleep(3000);
+            Thread.sleep(6000);
+
         }
     }
     private static Runnable chegaRestaurante = new Runnable() {
