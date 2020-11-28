@@ -17,7 +17,8 @@ public class Caixa extends Pessoa implements Enfileiramento{
 
     @Override
     public void entraNaFila(Cliente cliente)
-    {
+    {   
+        System.out.println("O " + cliente.getNomePessoa() + " Entrou na fila do Caixa" + this.getIdPessoa());
         fila.entraNaFila(cliente);
     }
 
@@ -29,7 +30,8 @@ public class Caixa extends Pessoa implements Enfileiramento{
 
     @Override
     public boolean isVazia()
-    {
+    {   
         return fila.isVazia();
     }
+    
 } 

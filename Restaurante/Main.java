@@ -15,8 +15,7 @@ public class Main extends Thread {
         }
     }
     private static Runnable chegaRestaurante = new Runnable() {
-        public void run() {restaurante.chegaRestaurante();
-        restaurante.checkFila();}
+        public void run() {restaurante.chegaRestaurante();}
     };
     private static Runnable checkMesa = new Runnable(){
         public void run(){restaurante.checarMesaLivre();}
